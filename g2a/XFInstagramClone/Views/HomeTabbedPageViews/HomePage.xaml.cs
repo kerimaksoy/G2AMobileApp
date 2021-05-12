@@ -58,8 +58,13 @@ namespace g2a.Views.HomeTabbedPageViews
                 PostImage = "gta.jpg",
  
             });
-            
-            
+            gamesModels.Add(new GamesModel
+            {
+
+                PostImage = "image0.jpg",
+
+            });
+
             listPosts.BindingContext = gamesModels;
             
         }
