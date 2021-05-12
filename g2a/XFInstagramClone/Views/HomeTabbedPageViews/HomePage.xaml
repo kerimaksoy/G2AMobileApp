@@ -1,0 +1,128 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:ff="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+             xmlns:views="clr-namespace:g2a.Views" 
+             mc:Ignorable="d"
+             x:Class="g2a.Views.HomeTabbedPageViews.HomePage">
+    <ContentPage.IconImageSource>
+        <FontImageSource Glyph="&#xf015;" FontFamily="{StaticResource FontAwesomeSolid}"/>
+    </ContentPage.IconImageSource>
+    
+    
+
+
+    <StackLayout>
+
+
+        <SearchBar Placeholder="Search for product"
+                                   CancelButtonColor="White"
+                                   PlaceholderColor="White"
+                                   TextColor="White"
+
+                                   HorizontalTextAlignment="Center"
+                                   FontSize="Medium"
+                                   FontAttributes="Italic" />
+
+
+
+        <ListView x:Name="listPosts"
+                  ItemsSource="{Binding .}"
+                  HasUnevenRows="True"
+                  VerticalScrollBarVisibility="Never"
+                  SeparatorVisibility="None"
+                  >
+
+            <ListView.Header >
+                <StackLayout Orientation="Horizontal"
+                             Margin="20"
+                             VerticalOptions="CenterAndExpand"
+                             Spacing="50" >
+                    
+                    <StackLayout>
+
+
+
+                        <ImageButton
+                             Clicked="OnClicked"
+                              BackgroundColor="#011b42">
+                            <ImageButton.Source>
+                                <FontImageSource Glyph="&#xf12e;" FontFamily="{StaticResource FontAwesomeSolid}"/>
+                            </ImageButton.Source>
+                        </ImageButton>
+                        
+                        
+
+
+                        <Label Text="Games" TextColor="White" FontSize="Small" Margin="3"></Label>
+                    </StackLayout>
+                    
+                    <StackLayout>
+                        <Image>
+                            <Image.Source >
+                                <FontImageSource Glyph="&#xf005;" FontFamily="{StaticResource FontAwesomeSolid}"/>
+                            </Image.Source>
+                        </Image>
+                        <Label Text="DLC's" TextColor="White" FontSize="Small" Margin="3"></Label>
+                    </StackLayout>
+                    <StackLayout>
+                        <Image>
+                            <Image.Source >
+                                <FontImageSource Glyph="&#xf51e;" FontFamily="{StaticResource FontAwesomeSolid}"/>
+                            </Image.Source>
+                        </Image>
+                        <Label Text="Currencies" TextColor="White" FontSize="Small" Margin="3"></Label>
+                    </StackLayout>
+                    <StackLayout>
+                        <Image>
+                            <Image.Source >
+                                <FontImageSource Glyph="&#xf466;" FontFamily="{StaticResource FontAwesomeSolid}"/>
+                            </Image.Source>
+                        </Image>
+                        <Label Text="More" TextColor="White" FontSize="Small" Margin="3"></Label>
+                    </StackLayout>
+                
+                </StackLayout>
+            </ListView.Header>
+            
+            
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                 
+                                <RowDefinition Height="7*"/>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+
+                            </Grid.RowDefinitions>
+                                
+                           
+                            
+                            
+                            <!--Image-->
+                            <ff:CachedImage Source="{Binding PostImage}"
+                                            VerticalOptions="Fill"
+                                            HorizontalOptions="Fill"
+                                            Aspect="AspectFit"
+                                            Grid.Row="0"
+                                            HeightRequest="400"/>
+
+                            <StackLayout Grid.Row="1" >
+                                
+                            </StackLayout>
+                           
+
+
+
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
+    
+</ContentPage>
